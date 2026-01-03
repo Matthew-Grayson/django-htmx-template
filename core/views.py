@@ -15,10 +15,9 @@ def ping(request):
     """Simple HTMX endpoint to demonstrate partial rendering."""
     # The django-htmx middleware adds request.htmx
     request_type = "HTMX request" if request.htmx else "Regular request"
-    
+
     context = {
         "server_time": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
         "request_type": request_type,
     }
     return render(request, "core/partials/ping.html", context)
-

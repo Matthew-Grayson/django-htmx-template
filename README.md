@@ -4,12 +4,12 @@ A Django project template with [django-htmx](https://github.com/adamchainz/djang
 
 ## Features
 
-✅ Django 5.2.9 with Python 3.11  
-✅ django-htmx integration with middleware  
-✅ HTMX loaded via template tags  
-✅ CSRF protection configured for HTMX requests  
-✅ App-based template organization  
-✅ Development tools: black, djhtml, pre-commit, django-extensions  
+✅ Django 5.2.9 with Python 3.11
+✅ django-htmx integration with middleware
+✅ HTMX loaded via template tags
+✅ CSRF protection configured for HTMX requests
+✅ App-based template organization
+✅ Development tools: black, djhtml, pre-commit, django-extensions
 
 ## Project Structure
 
@@ -84,17 +84,17 @@ The home page demonstrates a simple HTMX interaction:
 
 ## Development
 
-### Code Formatting
+### Code Formatting with Pre-commit
 
-```bash
-uv run black .
-uv run djhtml core/templates/
-```
-
-### Pre-commit Hooks
+Install pre-commit hooks (runs black, djhtml, and other checks automatically):
 
 ```bash
 uv run pre-commit install
+```
+
+Run checks manually:
+
+```bash
 uv run pre-commit run --all-files
 ```
 
@@ -104,7 +104,7 @@ This project follows the recommended django-htmx setup:
 
 1. **INSTALLED_APPS**: Added `django_htmx`
 2. **MIDDLEWARE**: Added `django_htmx.middleware.HtmxMiddleware`
-3. **Templates**: 
+3. **Templates**:
    - Base template loads HTMX via `{% htmx_script %}`
    - CSRF token configured in `hx-headers` on `<body>`
 4. **Views**: Can access `request.htmx` to detect HTMX requests
