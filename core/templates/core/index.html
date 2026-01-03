@@ -1,0 +1,31 @@
+{% extends "core/_base.html" %}
+
+{% block title %}Home - Django HTMX Template{% endblock %}
+
+{% block content %}
+<h1>🎉 Django + HTMX Template</h1>
+
+<div class="card">
+    <h2>Welcome!</h2>
+    <p>This is a Django project scaffolded with django-htmx integration.</p>
+    <ul>
+        <li>✅ Django {{ django_version }} is running</li>
+        <li>✅ django-htmx is installed and configured</li>
+        <li>✅ HTMX is loaded via {% templatetag openvariable %} htmx_script {% templatetag closevariable %} template tag</li>
+        <li>✅ HtmxMiddleware is active (request.htmx available)</li>
+        <li>✅ CSRF protection configured for HTMX requests</li>
+    </ul>
+</div>
+
+<div class="card">
+    <h2>Try HTMX in Action</h2>
+    <p>Click the button below to fetch content from the server without a full page refresh:</p>
+    <button 
+        hx-get="/ping/" 
+        hx-target="#response"
+        hx-swap="innerHTML">
+        Send HTMX Request
+    </button>
+    <div id="response"></div>
+</div>
+{% endblock %}
