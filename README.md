@@ -9,7 +9,7 @@ A Django project template with [django-htmx](https://github.com/adamchainz/djang
 ✅ HTMX loaded via template tags<br>
 ✅ CSRF protection configured for HTMX requests<br>
 ✅ App-based template organization<br>
-✅ Development tools: black, djhtml, pre-commit, django-extensions
+✅ Development tools: black, djhtml, pre-commit, django-extensions<br>
 
 ## Project Structure
 
