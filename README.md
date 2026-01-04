@@ -4,11 +4,11 @@ A Django project template with [django-htmx](https://github.com/adamchainz/djang
 
 ## Features
 
-✅ Django 5.2.9 with Python 3.11
-✅ django-htmx integration with middleware
-✅ HTMX loaded via template tags
-✅ CSRF protection configured for HTMX requests
-✅ App-based template organization
+✅ Django 5.2.9 with Python 3.11<br>
+✅ django-htmx integration with middleware<br>
+✅ HTMX loaded via template tags<br>
+✅ CSRF protection configured for HTMX requests<br>
+✅ App-based template organization<br>
 ✅ Development tools: black, djhtml, pre-commit, django-extensions
 
 ## Project Structure
