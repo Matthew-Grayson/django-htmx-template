@@ -42,7 +42,4 @@ def register(request):
 @login_required
 def dashboard(request):
     """Protected dashboard view - requires login."""
-    context = {
-        "user": request.user,
-    }
-    return render(request, "dashboard.html", context)
+    return render(request, "dashboard.html")
