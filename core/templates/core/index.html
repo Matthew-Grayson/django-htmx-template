@@ -14,7 +14,24 @@
       <li>✅ HTMX is loaded via {% templatetag openvariable %} htmx_script {% templatetag closevariable %} template tag</li>
       <li>✅ HtmxMiddleware is active (request.htmx available)</li>
       <li>✅ CSRF protection configured for HTMX requests</li>
+      <li>✅ Authentication system configured</li>
     </ul>
+  </div>
+
+  <div class="card">
+    <h2>Authentication</h2>
+    {% if user.is_authenticated %}
+      <p>You are logged in as <strong>{{ user.username }}</strong></p>
+      <a href="{% url 'core:dashboard' %}"><button>Go to Dashboard</button></a>
+      <form method="post" action="{% url 'logout' %}" style="display: inline; margin-left: 10px;">
+        {% csrf_token %}
+        <button type="submit">Logout</button>
+      </form>
+    {% else %}
+      <p>Get started by logging in or creating an account:</p>
+      <a href="{% url 'login' %}"><button>Login</button></a>
+      <a href="{% url 'core:register' %}"><button style="margin-left: 10px;">Register</button></a>
+    {% endif %}
   </div>
 
   <div class="card">

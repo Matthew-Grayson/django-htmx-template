@@ -1,0 +1,42 @@
+{% extends "core/_base.html" %}
+
+{% block title %}Dashboard - Django HTMX Template{% endblock %}
+
+{% block content %}
+  <h1>Dashboard</h1>
+
+  <div class="card">
+    <h2>Welcome, {{ user.username }}!</h2>
+    <p>This is a protected page that requires authentication.</p>
+    <ul>
+      <li><strong>Username:</strong> {{ user.username }}</li>
+      <li><strong>Email:</strong> {{ user.email|default:"Not set" }}</li>
+      <li><strong>Staff status:</strong> {{ user.is_staff|yesno:"Yes,No" }}</li>
+      <li><strong>Superuser status:</strong> {{ user.is_superuser|yesno:"Yes,No" }}</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>HTMX Activity Demo</h2>
+    <p>Click to load recent activity via HTMX:</p>
+    <button
+      hx-get="/ping/"
+      hx-target="#activity"
+      hx-swap="innerHTML">
+      Load Activity
+    </button>
+    <div id="activity"></div>
+  </div>
+
+  <div class="card">
+    <form method="post" action="{% url 'logout' %}" style="display: inline;">
+      {% csrf_token %}
+      <button type="submit">Logout</button>
+    </form>
+    {% if user.is_staff %}
+      <a href="{% url 'admin:index' %}"><button style="margin-left: 10px;">Admin Panel</button></a>
+    {% endif %}
+  </div>
+
+  <p><a href="{% url 'core:index' %}">← Back to home</a></p>
+{% endblock %}

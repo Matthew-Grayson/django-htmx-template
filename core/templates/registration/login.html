@@ -1,0 +1,21 @@
+{% extends "core/_base.html" %}
+
+{% block title %}Login - Django HTMX Template{% endblock %}
+
+{% block content %}
+  <h1>Login</h1>
+
+  <div class="card">
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Login</button>
+    </form>
+
+    <p style="margin-top: 20px;">
+      Don't have an account? <a href="{% url 'core:register' %}">Register here</a>
+    </p>
+  </div>
+
+  <p><a href="{% url 'core:index' %}">← Back to home</a></p>
+{% endblock %}

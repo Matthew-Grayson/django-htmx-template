@@ -1,0 +1,14 @@
+{% extends "core/_base.html" %}
+
+{% block title %}Logged Out - Django HTMX Template{% endblock %}
+
+{% block content %}
+  <h1>Logged Out</h1>
+
+  <div class="card">
+    <p>You have been successfully logged out.</p>
+    <p><a href="{% url 'login' %}">Login again</a></p>
+  </div>
+
+  <p><a href="{% url 'core:index' %}">← Back to home</a></p>
+{% endblock %}
