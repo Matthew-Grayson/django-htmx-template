@@ -10,6 +10,9 @@ A Django project template with [django-htmx](https://github.com/adamchainz/djang
 ✅ CSRF protection configured for HTMX requests<br>
 ✅ App-based template organization<br>
 ✅ Development tools: black, djhtml, pre-commit, django-extensions<br>
+✅ Full authentication system (login, logout, registration)<br>
+✅ Protected routes with @login_required<br>
+✅ Admin panel access for staff/superusers<br>
 
 ## Project Structure
 
@@ -65,6 +68,41 @@ uv run python manage.py runserver
 ```
 
 5. Visit http://127.0.0.1:8000/ in your browser
+
+## Authentication
+
+This template includes a complete authentication system:
+
+### Standard Users
+
+Users can register and log in to access protected pages:
+
+- **Register**: Visit `/accounts/register/` to create a new account
+- **Login**: Visit `/accounts/login/` to sign in
+- **Dashboard**: Visit `/dashboard/` to access a protected page (requires login)
+- **Logout**: Use the logout button on the home page or dashboard
+
+### Admin Users
+
+Create a superuser to access the Django admin panel:
+
+```bash
+uv run python manage.py createsuperuser
+```
+
+Follow the prompts to set username, email, and password. Admin users can:
+- Access the Django admin panel at `/admin/`
+- See additional admin-only features in the dashboard
+- Manage users, groups, and other Django models
+
+### Available Routes
+
+- `/` - Home page
+- `/accounts/login/` - Login page
+- `/accounts/logout/` - Logout (POST only)
+- `/accounts/register/` - User registration
+- `/dashboard/` - Protected dashboard (requires login)
+- `/admin/` - Django admin panel (requires staff/superuser)
 
 ### Alternative: Manual Virtual Environment
 
